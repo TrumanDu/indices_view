@@ -1,6 +1,6 @@
-# indies_view
+# indices_view
 
-> An awesome kibana plugin for view indies!
+> An awesome kibana plugin to view indices!
 
 ---
 
@@ -41,7 +41,7 @@ For more information about any of these commands run `npm run ${task} -- --help`
 
 ## Deploy
 
-**important** : edit this plugin version and kibana.version to you kibana version in package.json
+**Important** : Edit this plugin version and kibana.version to you kibana version in package.json
 
 - `npm install`
 - `npm run build`
