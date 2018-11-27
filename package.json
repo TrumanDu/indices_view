@@ -1,10 +1,10 @@
 {
   "name": "indices_view",
-  "version": "6.3.1",
+  "version": "0.0.0",
   "description": "An awesome kibana plugin for view indies!",
   "main": "index.js",
   "kibana": {
-    "version": "6.3.1",
+    "version": "kibana",
     "templateVersion": "7.2.3"
   },
   "scripts": {
