@@ -10,7 +10,7 @@ export default function (server) {
     path: '/api/indices_view/_stats',
     method: 'GET',
     handler(req, reply) {
-      client.indices.stats({ human:true,fields:['docs','store','get','search','query_cache'] }, function (err,response) {
+      client.indices.stats({ human:false,level: 'indices',metric:['docs','store','get','search','query_cache'] }, function (err,response) {
         reply(
                response
               );
