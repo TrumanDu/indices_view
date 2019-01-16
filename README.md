@@ -1,4 +1,9 @@
-# indies_view
+# indices_view
+
+> An awesome kibana plugin for view indies!
+
+---
+
 ## Language   
 - [EN](./README.md)
 - [中文](./README_ZH.md)
@@ -13,41 +18,56 @@
 ## Reg pattern
 
 ```
-1. /[^a-z]+$/
-2. /[\d]{4}[-|\.|/][\d]{1,2}[-|\.|/][\d]{1,2}/
+1. [^a-z]+$
+2. [\d]{4}[-|\.|/][\d]{1,2}[-|\.|/][\d]{1,2}
+```
+
+## Config
+kibana.yml
+
+1. mergePattern
+
+   merge pattern,default value is '[^a-z]+$'. you can edit it. like: 
+```
+indices_view.mergePattern: '[\d]{4}[-|\.|/][\d]{1,2}[-|\.|/][\d]{1,2}'
 ```
 ## Development
 
-See the [kibana contributing guide](https://github.com/elastic/kibana/blob/master/CONTRIBUTING.md) for instructions setting up your development environment. Once you have completed that, use the following npm tasks.
+See the [kibana contributing guide](https://github.com/elastic/kibana/blob/master/CONTRIBUTING.md) for instructions setting up your development environment. Once you have completed that, use the following yarn scripts.
 
-  - `npm start`
+  - `yarn kbn bootstrap`
 
-    Start kibana and have it include this plugin
+    Install dependencies and crosslink Kibana and all projects/plugins.
 
-  - `npm start -- --config kibana.yml`
+    > ***IMPORTANT:*** Use this script instead of `yarn` to install dependencies when switching branches, and re-run it whenever your dependencies change.
 
-    You can pass any argument that you would normally send to `bin/kibana` by putting them after `--` when running `npm start`
+  - `yarn start`
 
-  - `npm run build`
+    Start kibana and have it include this plugin. You can pass any arguments that you would normally send to `bin/kibana`
 
-    Build a distributable archive
+      ```
+      yarn start --elasticsearch.url http://localhost:9220
+      ```
 
-  - `npm run test:browser`
+  - `yarn build`
 
-    Run the browser tests in a real web browser
+    Build a distributable archive of your plugin.
 
-  - `npm run test:server`
+  - `yarn test:browser`
 
-    Run the server tests using mocha
+    Run the browser tests in a real web browser.
 
-For more information about any of these commands run `npm run ${task} -- --help`.
+  - `yarn test:server`
 
+    Run the server tests using mocha.
+
+For more information about any of these commands run `yarn ${task} --help`. For a full list of tasks checkout the `package.json` file, or run `yarn run`.
 ## Deploy
 
 **important** : edit this plugin version and kibana.version to you kibana version in package.json
 
-- `npm install`
-- `npm run build`
+- `yarn kbn bootstrap`
+- `yarn build`
 
 Build a distributable archive
 

@@ -19,38 +19,53 @@
 1. /[^a-z]+$/
 2. /[\d]{4}[-|\.|/][\d]{1,2}[-|\.|/][\d]{1,2}/
 ```
+## 配置
+kibana.yml
+
+1. mergePattern
+
+   默认值是 '[^a-z]+$'. 你可以按如下格式修改: 
+```
+indices_view.mergePattern: '[\d]{4}[-|\.|/][\d]{1,2}[-|\.|/][\d]{1,2}'
+```
 ## 开发流程
 
-查看[kibana contributing guide](https://github.com/elastic/kibana/blob/master/CONTRIBUTING.md) 官方文档，构建开发环境，搭建好环境后，按以下步骤进行。
+查看 [kibana contributing guide](https://github.com/elastic/kibana/blob/master/CONTRIBUTING.md) 官方文档，构建开发环境，搭建好环境后，按以下步骤进行。
 
-  - `npm start`
+  - `yarn kbn bootstrap`
 
-    启动kibana
+    安装所有依赖，并建立所有插件与kibana连接。
 
-  - `npm start -- --config kibana.yml`
+    > ***重要:*** 使用 `yarn` 代替安装依赖，无论是切换分支还是其他需要重新下载依赖的情况.
 
-    可以通过这个命令指定kibana 配置文件
+  - `yarn start`
 
-  - `npm run build`
+    Start kibana and have it include this plugin. You can pass any arguments that you would normally send to `bin/kibana`
+
+      ```
+      yarn start --elasticsearch.url http://localhost:9220
+      ```
+
+  - `yarn build`
 
     生成编译包
 
-  - `npm run test:browser`
+  - `yarn test:browser`
 
     在web 浏览器中测试
 
-  - `npm run test:server`
+  - `yarn test:server`
 
     用mocha 测试服务端
 
-更多信息执行`npm run ${task} -- --help`.
+更多信息执行`yarn ${task} --help`. 完整任务列表查看`package.json` 文件, 或者运行 `yarn run`.
 
 ## 部署
 
 **重要** : 修改这个插件的版本kibana.version 和你在kibana package.json 中的版本保持一致！
 
-- `npm install`
-- `npm run build`
+- `yarn kbn bootstrap`
+- `yarn build`
 
 按以上步骤生成安装包。
 

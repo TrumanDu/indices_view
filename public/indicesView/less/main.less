@@ -1,0 +1,16 @@
+.container {
+	margin-top: 30px;
+}
+
+.cleaner-container {
+	padding: 16px;
+}
+
+.table {
+	counter-reset: tablerow -1;
+}
+  
+.tablerow::before {
+	counter-increment: tablerow;
+	content: counter(tablerow);
+}
