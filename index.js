@@ -32,7 +32,7 @@ export default function (kibana) {
       // Add server routes and initialize the plugin here
       const config = server.config();
       const client = new elasticsearch.Client({
-        host: config.get('elasticsearch.url'),
+        host: config.get('elasticsearch.hosts'),
         //log: 'trace'
         requestTimeout: 120000
       });
