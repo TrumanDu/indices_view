@@ -273,12 +273,12 @@ export default class Table extends Component {
       onBlur={this.onPatternChange}
       onChange={this.handelChange}
     />),
-      (<EuiSwitch
-        label="Merge"
-        key="MergeEuiSwitch"
-        checked={this.state.merge}
-        onChange={() => this.mergeFilter(this)}
-      />)];
+    (<EuiSwitch
+      label="Merge"
+      key="MergeEuiSwitch"
+      checked={this.state.merge}
+      onChange={() => this.mergeFilter(this)}
+    />)];
   }
 
   onQueryChange = ({ query }) => {
